@@ -1,63 +1,63 @@
 <div align="center">
   <picture>
     <source media="(prefers-reduced-motion: reduce)" srcset="assets/seatora.png">
-    <img src="assets/seatora-studio.gif" width="144" height="144" alt="三位 AI 伙伴一起在小画板上画出山脊、太阳和草坡">
+    <img src="assets/seatora-studio.gif" width="144" height="144" alt="Three AI makers drawing a mountain, sun and hillside together">
   </picture>
-  <h1>Seatora · 共席</h1>
-  <p><strong>把一段没讲透的讨论，做成读者能亲手试的网页。</strong></p>
-  <p>macOS · Windows &nbsp;｜&nbsp; 本地优先 &nbsp;｜&nbsp; 接入自己的 AI 伙伴</p>
-  <p><a href="https://github.com/ababdotai/seatora-releases/releases/latest">下载桌面版</a> · <a href="#第一次使用">第一次使用</a> · <a href="https://github.com/ababdotai/seatora-releases/issues">反馈</a> · <a href="README.en.md">English</a></p>
+  <h1>Seatora</h1>
+  <p><strong>Turn a discussion into a webpage your reader can actually try.</strong></p>
+  <p>macOS · Windows &nbsp;｜&nbsp; Local-first &nbsp;｜&nbsp; Bring your own AI</p>
+  <p><a href="https://github.com/ababdotai/seatora-releases/releases/latest">Download</a> · <a href="#getting-started">Getting started</a> · <a href="https://github.com/ababdotai/seatora-releases/issues">Feedback</a> · <a href="README.zh-CN.md">中文</a></p>
 </div>
 
-## 一张网页怎么把事情讲明白？
+## What can a page explain?
 
-假设你要向新同事解释异步队列。文档写着「提交后马上收到回执」，读者可能以为事情已经做完。你可以把这段材料交给 Seatora，请 AI 伙伴把两个时刻放进同一张网页，让读者先猜，再改动排队数看结果。
+Imagine explaining a job queue to a new teammate. “The server immediately acknowledges the request” sounds reassuring. How long until the work is actually done? Give Seatora your notes and ask a companion to make a page where readers can predict the answer, then change the queue length to test it.
 
-| 前面有几项任务 | 收到回执 | 轮到我开始 | 我的任务完成 |
+| Jobs ahead | Acknowledged | My job starts | My job finishes |
 | --- | --- | --- | --- |
-| 0 项 | 约 0 秒 | 第 0 秒 | 第 2 秒 |
-| 3 项 | 约 0 秒 | 第 6 秒 | 第 8 秒 |
+| 0 | Around 0 s | 0 s | 2 s |
+| 3 | Around 0 s | 6 s | 8 s |
 
-这个例子只有一个工作线程，每项固定耗时 2 秒，忽略传输和入队时间。把前方任务从 0 调到 3，回执几乎一样快，真正完成却晚了 6 秒。
+Assume one worker, two seconds per job, and negligible transport and enqueue times. Three extra jobs barely change the acknowledgment time, yet completion moves six seconds later.
 
-![Seatora 桌面实拍。左边是示例讨论，中间是原始材料和 DeepSeek 的作品消息，右侧可以直接打开讲解页并检验预测。](assets/workspace.webp)
+![The Seatora desktop app showing the original discussion, a DeepSeek creation and its interactive quiz side by side. The interface shown is in Chinese.](assets/workspace.webp)
 
-## 第一次使用
+## Getting started
 
-1. **请一位伙伴入席。** 安装并打开 Seatora，在「连接设置」接入自己的模型 API，或选择本机已安装并登录的 Codex 或 Claude Code。新建讨论，选择一位伙伴。
-2. **把材料放到桌上。** 粘贴一个想法、一段 Markdown 或报告片段。已经聊出结论时，可以在讨论标题菜单选择「用讨论创作网页」。说明读者是谁，以及希望读者看完能回答哪个问题。
-3. **边看边改。** 点击回复中的作品，在讨论旁试用网页。挑一版点「修订此版本」，告诉伙伴具体哪里容易误解。之后从房间顶部的「作品」回到最新版，从原消息仍能打开当时的版本。
+1. **Connect a companion.** Open connection settings (连接设置) and configure a model API or a locally installed, signed-in Codex or Claude Code CLI. Start a discussion and pick a companion.
+2. **Bring your material.** Paste an idea, a Markdown passage or a technical brief. To build on an existing conversation, open its title menu and select 用讨论创作网页. Say who will read the page and what question they should be able to answer.
+3. **Try the page and revise it.** Open the work from a reply and test it beside the conversation. Select 修订此版本 on the version you want to change. The room’s shelf (作品) opens the latest version. The original message opens the version it introduced.
 
-可以直接发给伙伴试试：
+Try this as your first message:
 
-> 给第一次接触队列的工程师做一页讲解。一个线程，每项 2 秒。先让读者猜前面有 3 项时会在第几秒完成，再让他拖动排队数，同时观察回执和完成时刻。
+> Make a page for an engineer learning about queues. One worker takes two seconds per job. Ask the reader when their job will finish with three jobs ahead. Then let them change the queue length and compare acknowledgment time with completion time.
 
-## 一场讨论可以留下什么？
+## What stays in a room?
 
-| 在房间里 | 你可以做什么 |
+| In the room | What you can do |
 | --- | --- |
-| **伙伴与分工** | 邀请另一位伙伴接着讨论，或请它独立看材料。打开输入框的「团队」可为这一轮安排分工。 |
-| **话题与摘记** | 从一条消息展开话题，把值得留下的回复保存为摘记。房间顶部可以随时翻阅。 |
-| **作品与版本** | 在同一房间创作多张网页，分别修订。作品架保留每件作品的版本，方便回看。 |
-| **带走文字** | 在标题菜单选择「导出讨论」，得到一份 Markdown。 |
+| **Companions** | Invite a second opinion with shared context, or ask someone to read independently. Turn on team mode to arrange roles for a particular turn. |
+| **Topics and notes** | Branch into a topic from a message. Save a reply as a note and find it again at the top of the room. |
+| **Works and versions** | Keep several pages in the same room. Each has its own revision history on the shelf. |
+| **Markdown export** | Use 导出讨论 in the title menu to take the written discussion with you. |
 
-## 安装与更新
+## Install and update
 
-从[最新发布页](https://github.com/ababdotai/seatora-releases/releases/latest)的附件中选择安装包。
+Download an installer from the assets on the [latest release](https://github.com/ababdotai/seatora-releases/releases/latest).
 
-| 电脑 | 下载与安装 |
+| Computer | Installation |
 | --- | --- |
-| Apple 芯片的 Mac | 下载文件名以 `macOS-arm64.dmg` 结尾的磁盘映像，打开后把 Seatora 拖进「应用程序」。 |
-| 64 位 Windows（x64） | 下载文件名以 `Windows-x64-Setup.exe` 结尾的安装程序，双击运行。 |
+| Apple silicon Mac | Open the file ending in `macOS-arm64.dmg` and drag Seatora into Applications. |
+| Windows x64 | Run the installer ending in `Windows-x64-Setup.exe`. |
 
-当前 Mac 安装包使用本地签名，尚未经过 Apple 公证。Windows 安装包未签名。
+The Mac application is ad-hoc signed and has not been notarized by Apple. The Windows installer is unsigned.
 
-<img src="assets/update-cat.webp" alt="戴上箭头吊牌的歪头猫" width="48" align="left">
+<img src="assets/update-cat.webp" alt="The head-tilting update cat with its arrow tag" width="48" align="left">
 
-桌面版每次启动时检查一次更新，持续运行时每 24 小时再检查一次。也可以随时点左下角设置上方的循环箭头。有新版时，它会变成这只歪头猫。点猫先看版本信息，再点「下载更新」选择保存位置。下载完成会校验文件大小和 SHA-256，随后可以打开文件夹安装。
+Seatora checks on each launch and every 24 hours while running. The circular arrow above Settings lets you check at any time. When a release is available, the arrow turns into this cat. Click it to see the version, then choose Download to select a destination. Seatora checks the file size and SHA-256 before offering to reveal it for installation.
 
 <br clear="all">
 
-## 数据放在哪里？
+## Where does my work go?
 
-讨论、摘记和网页作品保存在电脑上的本地数据库。请求 AI 回复或创作时，相关材料会发给你选定的模型服务或本地 CLI。启用联网搜索或作品配图时，对应服务会收到搜索词或配图提示。下载 Seatora 无需注册账号，使用模型所需的账号、密钥与费用由你选择的服务决定。
+Discussions, notes and generated pages live in a local database on your computer. When you ask for a reply or a page, relevant context goes to your selected model service or local CLI. If you enable web search or image generation, those services receive the search query or illustration prompt. Downloading Seatora requires no account. Your model provider determines its own account requirements and charges.
