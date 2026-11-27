@@ -52,9 +52,9 @@ Download an installer from the assets on the [latest release](https://github.com
 
 The Mac application is ad-hoc signed and has not been notarized by Apple. The Windows installer is unsigned.
 
-<img src="assets/update-cat.webp" alt="The head-tilting update cat with its arrow tag" width="48" align="left">
+<img src="assets/update-download.svg" alt="White download symbol on a green circle" width="34" align="left">
 
-Seatora checks on each launch and every 24 hours while running. The circular arrow above Settings lets you check at any time. When a release is available, the arrow turns into this cat. Click it to see the version, then choose Download to select a destination. Seatora checks the file size and SHA-256 before offering to reveal it for installation.
+Seatora checks on each launch and every 24 hours while running. Click the circular arrow above Settings to check at any time. When an update is available, the arrow becomes a green download icon. Click it to see the version, then choose Download and a save location. Starting with v0.1.3, once the file size and SHA-256 match, Seatora automatically opens the disk image on macOS or starts the setup wizard on Windows. Finish installing in that window. If the installer cannot open, you can still reveal the file.
 
 <br clear="all">
 
